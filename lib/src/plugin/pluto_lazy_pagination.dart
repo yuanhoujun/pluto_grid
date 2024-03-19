@@ -113,10 +113,10 @@ class PlutoLazyPagination extends StatefulWidget {
   final PlutoGridStateManager stateManager;
 
   @override
-  State<PlutoLazyPagination> createState() => _PlutoLazyPaginationState();
+  State<PlutoLazyPagination> createState() => PlutoLazyPaginationState();
 }
 
-class _PlutoLazyPaginationState extends State<PlutoLazyPagination> {
+class PlutoLazyPaginationState extends State<PlutoLazyPagination> {
   late final StreamSubscription<PlutoGridEvent> _events;
 
   int _page = 1;
