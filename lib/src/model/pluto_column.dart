@@ -189,6 +189,9 @@ class PlutoColumn {
   /// Entering the Enter key or tapping the cell enters the Editing mode.
   bool? enableEditingMode;
 
+  /// 是否打开本地排序
+  bool enableLocalSort;
+
   /// Hide the column.
   bool hide;
 
@@ -225,6 +228,7 @@ class PlutoColumn {
     this.enableSetColumnsMenuItem = true,
     this.enableAutoEditing = false,
     this.enableEditingMode = true,
+    this.enableLocalSort = true,
     this.hide = false,
   })  : _key = UniqueKey(),
         _checkReadOnly = checkReadOnly;

@@ -372,12 +372,14 @@ mixin ColumnState implements IPlutoGridState {
   void toggleSortColumn(PlutoColumn column) {
     final oldSort = column.sort;
 
-    if (column.sort.isNone) {
-      sortAscending(column, notify: false);
-    } else if (column.sort.isAscending) {
-      sortDescending(column, notify: false);
-    } else {
-      sortBySortIdx(column, notify: false);
+    if (column.enableLocalSort) {
+      if (column.sort.isNone) {
+        sortAscending(column, notify: false);
+      } else if (column.sort.isAscending) {
+        sortDescending(column, notify: false);
+      } else {
+        sortBySortIdx(column, notify: false);
+      }
     }
 
     _callOnSorted(column, oldSort);
