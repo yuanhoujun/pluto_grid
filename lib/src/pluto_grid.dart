@@ -1643,7 +1643,7 @@ enum PlutoGridMode {
 
   bool get isReadOnly => this == PlutoGridMode.readOnly;
 
-  bool get isEditableMode => isNormal || isPopup;
+  bool get isEditableMode => isNormal || isPopup || isSelectMode;
 
   bool get isSelectMode => isSingleSelectMode || isMultiSelectMode;
 
