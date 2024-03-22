@@ -262,10 +262,12 @@ class _CellContainerState extends PlutoStateWithChange<_CellContainer> {
           cellColorInEditState: cellColorInEditState,
           selectingMode: selectingMode,
         ),
-        border: Border.all(
-          color: hasFocus ? activatedBorderColor : inactivatedBorderColor,
-          width: 1,
-        ),
+        border: readOnly
+            ? null
+            : Border.all(
+                color: hasFocus ? activatedBorderColor : inactivatedBorderColor,
+                width: 1,
+              ),
       );
     } else if (isSelectedCell) {
       return BoxDecoration(
