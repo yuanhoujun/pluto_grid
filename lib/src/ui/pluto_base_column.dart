@@ -11,10 +11,13 @@ class PlutoBaseColumn extends PlutoStatefulWidget
 
   final double? columnTitleHeight;
 
+  final bool enableRowChecked;
+
   PlutoBaseColumn({
     required this.stateManager,
     required this.column,
     this.columnTitleHeight,
+    required this.enableRowChecked
   }) : super(key: column.key);
 
   @override
@@ -65,6 +68,7 @@ class PlutoBaseColumnState extends PlutoStateWithChange<PlutoBaseColumn> {
             stateManager: stateManager,
             column: widget.column,
             height: widget.columnTitleHeight ?? stateManager.columnHeight,
+            enableRowChecked: widget.enableRowChecked,
           ),
         ),
         if (_showColumnFilter)

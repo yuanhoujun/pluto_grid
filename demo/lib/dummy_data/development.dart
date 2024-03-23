@@ -22,6 +22,8 @@ class DummyData {
         title: faker.food.cuisine(),
         field: i.toString(),
         readOnly: [1, 3, 5].contains(i),
+        enableAutoEditing: i == 2,
+        enableEditingMode: i == 2,
         type: (int i) {
           if (i == 0) {
             return PlutoColumnType.number();

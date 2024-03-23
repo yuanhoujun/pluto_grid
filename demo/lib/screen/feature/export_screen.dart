@@ -35,7 +35,6 @@ class _ExportScreenState extends State<ExportScreen> {
         field: 'column1',
         type: PlutoColumnType.text(),
         enableRowDrag: true,
-        enableRowChecked: true,
         width: 250,
         minWidth: 175,
         renderer: (rendererContext) {

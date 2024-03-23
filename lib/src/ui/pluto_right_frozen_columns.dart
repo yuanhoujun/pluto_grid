@@ -81,6 +81,7 @@ class PlutoRightFrozenColumnsState
       child: PlutoBaseColumn(
         stateManager: stateManager,
         column: e,
+        enableRowChecked: stateManager.configuration.enableRowChecked,
       ),
     );
   }

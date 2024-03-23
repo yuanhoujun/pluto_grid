@@ -16,12 +16,15 @@ class PlutoDefaultCell extends PlutoStatefulWidget {
 
   final PlutoGridStateManager stateManager;
 
+  final bool enableRowChecked;
+
   const PlutoDefaultCell({
     required this.cell,
     required this.column,
     required this.rowIdx,
     required this.row,
     required this.stateManager,
+    required this.enableRowChecked,
     super.key,
   });
 
@@ -177,7 +180,7 @@ class _PlutoDefaultCellState extends PlutoStateWithChange<PlutoDefaultCell> {
             color: style.iconColor,
           ),
         ),
-      if (widget.column.enableRowChecked)
+      if (widget.enableRowChecked)
         CheckboxSelectionWidget(
           column: widget.column,
           row: widget.row,

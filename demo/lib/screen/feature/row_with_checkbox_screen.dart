@@ -15,15 +15,20 @@ class RowWithCheckboxScreen extends StatefulWidget {
 }
 
 class _RowWithCheckboxScreenState extends State<RowWithCheckboxScreen> {
-  final List<PlutoColumn> columns = [];
+  // final List<PlutoColumn> columns = [];
 
   final List<PlutoRow> rows = [];
+  bool _enableRowChecked = true;
 
   late PlutoGridStateManager stateManager;
 
   @override
   void initState() {
     super.initState();
+  }
+
+  _generateColumns() {
+    final columns = <PlutoColumn>[];
 
     columns.addAll([
       PlutoColumn(
@@ -31,7 +36,6 @@ class _RowWithCheckboxScreenState extends State<RowWithCheckboxScreen> {
         field: 'column1',
         type: PlutoColumnType.text(),
         enableRowDrag: true,
-        enableRowChecked: true,
       ),
       PlutoColumn(
         title: 'column2',
@@ -54,8 +58,7 @@ class _RowWithCheckboxScreenState extends State<RowWithCheckboxScreen> {
         type: PlutoColumnType.text(),
       ),
     ]);
-
-    rows.addAll(DummyData.rowsByColumns(length: 15, columns: columns));
+    return columns;
   }
 
   void handleOnRowChecked(PlutoGridOnRowCheckedEvent event) {
@@ -71,6 +74,10 @@ class _RowWithCheckboxScreenState extends State<RowWithCheckboxScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("11111: $_enableRowChecked");
+    final columns = _generateColumns();
+    rows.clear();
+    rows.addAll(DummyData.rowsByColumns(length: 1, columns: columns));
     return PlutoExampleScreen(
       title: 'Row with checkbox',
       topTitle: 'Row with checkbox',
@@ -84,6 +91,14 @@ class _RowWithCheckboxScreenState extends State<RowWithCheckboxScreen> {
           url:
               'https://github.com/bosskmk/pluto_grid/blob/master/demo/lib/screen/feature/row_with_checkbox_screen.dart',
         ),
+        TextButton(
+            onPressed: () {
+              setState(() {
+                _enableRowChecked = !_enableRowChecked;
+                stateManager.notifyListeners();
+              });
+            },
+            child: Text("测试"))
       ],
       body: PlutoGrid(
         columns: columns,
@@ -96,6 +111,9 @@ class _RowWithCheckboxScreenState extends State<RowWithCheckboxScreen> {
 
           stateManager = event.stateManager;
         },
+        configuration: PlutoGridConfiguration(
+          enableRowChecked: _enableRowChecked
+        ),
         onRowChecked: handleOnRowChecked,
         // configuration: PlutoConfiguration.dark(),
       ),

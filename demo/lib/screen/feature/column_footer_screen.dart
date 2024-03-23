@@ -30,7 +30,6 @@ class _ColumnFooterScreenState extends State<ColumnFooterScreen> {
         title: 'column1',
         field: 'column1',
         type: PlutoColumnType.text(),
-        enableRowChecked: true,
         footerRenderer: (rendererContext) {
           return PlutoAggregateColumnFooter(
             rendererContext: rendererContext,

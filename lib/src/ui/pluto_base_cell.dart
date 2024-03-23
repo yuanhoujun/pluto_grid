@@ -15,6 +15,8 @@ class PlutoBaseCell extends StatelessWidget
 
   final PlutoGridStateManager stateManager;
 
+  final bool enableRowChecked;
+
   const PlutoBaseCell({
     super.key,
     required this.cell,
@@ -22,6 +24,7 @@ class PlutoBaseCell extends StatelessWidget
     required this.rowIdx,
     required this.row,
     required this.stateManager,
+    required this.enableRowChecked
   });
 
   @override
@@ -129,6 +132,7 @@ class PlutoBaseCell extends StatelessWidget
           column: column,
           row: row,
           cell: cell,
+          enableRowChecked: enableRowChecked,
         ),
       ),
     );
@@ -315,12 +319,15 @@ class _Cell extends PlutoStatefulWidget {
 
   final PlutoCell cell;
 
+  final bool enableRowChecked;
+
   const _Cell({
     required this.stateManager,
     required this.rowIdx,
     required this.row,
     required this.column,
     required this.cell,
+    required this.enableRowChecked
   });
 
   @override
@@ -402,6 +409,7 @@ class _CellState extends PlutoStateWithChange<_Cell> {
       rowIdx: widget.rowIdx,
       row: widget.row,
       stateManager: stateManager,
+      enableRowChecked: widget.enableRowChecked,
     );
   }
 }

@@ -731,7 +731,6 @@ mixin ColumnState implements IPlutoGridState {
         title: configuration.localeText.setColumnsTitle,
         field: titleField,
         type: PlutoColumnType.text(),
-        enableRowChecked: true,
         enableEditingMode: false,
         enableDropToResize: true,
         enableContextMenu: false,

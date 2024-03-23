@@ -31,7 +31,6 @@ class _CellRendererScreenState extends State<CellRendererScreen> {
         field: 'column1',
         type: PlutoColumnType.text(),
         enableRowDrag: true,
-        enableRowChecked: true,
         width: 250,
         minWidth: 175,
         renderer: (rendererContext) {

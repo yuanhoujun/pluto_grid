@@ -189,7 +189,6 @@ class _DevelopmentScreenState extends State<DevelopmentScreen> {
         );
       };
       columns[3].enableRowDrag = true;
-      columns[3].enableRowChecked = true;
       columns[3].frozen = PlutoColumnFrozen.start;
       columns[4].frozen = PlutoColumnFrozen.start;
     }
@@ -197,7 +196,6 @@ class _DevelopmentScreenState extends State<DevelopmentScreen> {
     /// Test C
     if (test.isC) {
       columns.addAll(DummyData(10, 0).columns);
-      columns[0].enableRowChecked = true;
       columns[0].footerRenderer = (c) {
         return PlutoAggregateColumnFooter(
           rendererContext: c,
@@ -953,7 +951,6 @@ final testColumnsA = [
     field: 'column1',
     type: PlutoColumnType.text(),
     enableRowDrag: true,
-    enableRowChecked: true,
     enableContextMenu: false,
     enableDropToResize: true,
     enableAutoEditing: true,

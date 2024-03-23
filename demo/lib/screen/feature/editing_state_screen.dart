@@ -73,12 +73,13 @@ class _EditingStateScreenState extends State<EditingStateScreen> {
             child: PlutoGrid(
               columns: columns,
               rows: rows,
+              mode: PlutoGridMode.selectWithOneTap,
               onChanged: (PlutoGridOnChangedEvent event) {
                 print(event);
               },
               onLoaded: (PlutoGridOnLoadedEvent event) {
                 event.stateManager
-                    .setSelectingMode(PlutoGridSelectingMode.cell);
+                    .setSelectingMode(PlutoGridSelectingMode.row);
 
                 stateManager = event.stateManager;
               },

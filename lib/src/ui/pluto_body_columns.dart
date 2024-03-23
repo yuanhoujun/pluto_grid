@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -94,12 +95,14 @@ class PlutoBodyColumnsState extends PlutoStateWithChange<PlutoBodyColumns> {
     );
   }
 
-  PlutoVisibilityLayoutId _makeColumn(PlutoColumn e) {
+  PlutoVisibilityLayoutId _makeColumn(
+      {required PlutoColumn column, required enableRowChecked}) {
     return PlutoVisibilityLayoutId(
-      id: e.field,
+      id: column.field,
       child: PlutoBaseColumn(
         stateManager: stateManager,
-        column: e,
+        column: column,
+        enableRowChecked: enableRowChecked,
       ),
     );
   }
@@ -122,7 +125,13 @@ class PlutoBodyColumnsState extends PlutoStateWithChange<PlutoBodyColumns> {
         initialViewportDimension: MediaQuery.of(context).size.width,
         children: _showColumnGroups == true
             ? _columnGroups.map(_makeColumnGroup).toList(growable: false)
-            : _columns.map(_makeColumn).toList(growable: false),
+            : _columns
+                .mapIndexed((index, element) => _makeColumn(
+                    column: element,
+                    enableRowChecked: index > 0
+                        ? false
+                        : stateManager.configuration.enableRowChecked))
+                .toList(growable: false),
       ),
     );
   }

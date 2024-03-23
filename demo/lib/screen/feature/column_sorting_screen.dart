@@ -27,6 +27,8 @@ class _ColumnSortingScreenState extends State<ColumnSortingScreen> {
         title: 'Column A',
         field: 'column_a',
         type: PlutoColumnType.text(),
+        enableLocalSort: false,
+        sort: PlutoColumnSort.descending
       ),
       PlutoColumn(
         title: 'Column B',

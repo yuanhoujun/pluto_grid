@@ -12,11 +12,14 @@ class PlutoColumnTitle extends PlutoStatefulWidget {
 
   late final double height;
 
-  PlutoColumnTitle({
-    required this.stateManager,
-    required this.column,
-    double? height,
-  })  : height = height ?? stateManager.columnHeight,
+  final bool enableRowChecked;
+
+  PlutoColumnTitle(
+      {required this.stateManager,
+      required this.column,
+      double? height,
+      required this.enableRowChecked})
+      : height = height ?? stateManager.columnHeight,
         super(key: ValueKey('column_title_${column.key}'));
 
   @override
@@ -133,6 +136,7 @@ class PlutoColumnTitleState extends PlutoStateWithChange<PlutoColumnTitle> {
         stateManager: stateManager,
         column: widget.column,
         height: widget.height,
+        enableRowChecked: widget.enableRowChecked,
       ),
     );
 
@@ -337,10 +341,13 @@ class _ColumnWidget extends StatelessWidget {
 
   final double height;
 
+  final bool enableRowChecked;
+
   const _ColumnWidget({
     required this.stateManager,
     required this.column,
     required this.height,
+    required this.enableRowChecked
   });
 
   EdgeInsets get padding =>
@@ -391,7 +398,7 @@ class _ColumnWidget extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
-                    if (column.enableRowChecked)
+                    if (enableRowChecked)
                       CheckboxAllSelectionWidget(stateManager: stateManager),
                     Expanded(
                       child: _ColumnTextWidget(

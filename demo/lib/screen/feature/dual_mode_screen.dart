@@ -50,7 +50,6 @@ class _DualModeScreenState extends State<DualModeScreen> {
         title: 'Username',
         field: 'username',
         type: PlutoColumnType.text(),
-        enableRowChecked: true,
       ),
       PlutoColumn(
         title: 'Point',
@@ -74,7 +73,6 @@ class _DualModeScreenState extends State<DualModeScreen> {
         title: 'Activity',
         field: 'activity',
         type: PlutoColumnType.text(),
-        enableRowChecked: true,
       ),
       PlutoColumn(
         title: 'Date',

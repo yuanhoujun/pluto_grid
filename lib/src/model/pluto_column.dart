@@ -145,9 +145,6 @@ class PlutoColumn {
   /// Change the position of the row by dragging the icon in the cell.
   bool enableRowDrag;
 
-  /// A checkbox appears in the cell of the column.
-  bool enableRowChecked;
-
   /// Sort rows by tapping on the column heading.
   bool enableSorting;
 
@@ -219,7 +216,6 @@ class PlutoColumn {
     this.suppressedAutoSize = false,
     this.enableColumnDrag = true,
     this.enableRowDrag = false,
-    this.enableRowChecked = false,
     this.enableSorting = true,
     this.enableContextMenu = true,
     this.enableDropToResize = true,

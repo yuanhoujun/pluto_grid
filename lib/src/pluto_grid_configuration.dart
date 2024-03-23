@@ -11,6 +11,9 @@ class PlutoGridConfiguration {
   /// Moves the current cell when focus reaches the left or right edge in the edit state.
   final bool enableMoveHorizontalInEditing;
 
+  /// 标记是否显示复选框
+  final bool enableRowChecked;
+
   /// [PlutoEnterKeyAction.EditingAndMoveDown]
   /// It switches to the editing state, and moves down in the editing state.
   ///
@@ -76,6 +79,7 @@ class PlutoGridConfiguration {
   const PlutoGridConfiguration({
     this.enableMoveDownAfterSelecting = false,
     this.enableMoveHorizontalInEditing = false,
+    this.enableRowChecked = false,
     this.enterKeyAction = PlutoGridEnterKeyAction.editingAndMoveDown,
     this.tabKeyAction = PlutoGridTabKeyAction.normal,
     this.shortcut = const PlutoGridShortcut(),
@@ -89,6 +93,7 @@ class PlutoGridConfiguration {
   const PlutoGridConfiguration.dark({
     this.enableMoveDownAfterSelecting = false,
     this.enableMoveHorizontalInEditing = false,
+    this.enableRowChecked = false,
     this.enterKeyAction = PlutoGridEnterKeyAction.editingAndMoveDown,
     this.tabKeyAction = PlutoGridTabKeyAction.normal,
     this.shortcut = const PlutoGridShortcut(),
@@ -139,6 +144,7 @@ class PlutoGridConfiguration {
     PlutoGridColumnFilterConfig? columnFilter,
     PlutoGridColumnSizeConfig? columnSize,
     PlutoGridLocaleText? localeText,
+    bool? enableRowChecked,
   }) {
     return PlutoGridConfiguration(
       enableMoveDownAfterSelecting:
@@ -153,6 +159,7 @@ class PlutoGridConfiguration {
       columnFilter: columnFilter ?? this.columnFilter,
       columnSize: columnSize ?? this.columnSize,
       localeText: localeText ?? this.localeText,
+      enableRowChecked: enableRowChecked ?? this.enableRowChecked
     );
   }
 
@@ -172,7 +179,8 @@ class PlutoGridConfiguration {
             scrollbar == other.scrollbar &&
             columnFilter == other.columnFilter &&
             columnSize == other.columnSize &&
-            localeText == other.localeText;
+            localeText == other.localeText &&
+            enableRowChecked == other.enableRowChecked;
   }
 
   @override
@@ -187,6 +195,7 @@ class PlutoGridConfiguration {
         columnFilter,
         columnSize,
         localeText,
+        enableRowChecked
       );
 }
 
